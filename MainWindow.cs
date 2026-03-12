@@ -13,7 +13,8 @@ namespace CS_Week02_22017011_CatchButton
         public MainWindow()
         {
             InitializeComponent();
-            label2.Text = $"최고 기록 : {Program.HighScore}";
+            // 초기화 시 최고 기록 표시
+            label2.Text = $"최고 기록 : {Program.HighScore:00}";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -31,7 +32,12 @@ namespace CS_Week02_22017011_CatchButton
             }
 
             var gw = new GameWindow();
-            gw.FormClosed += (s, args) => this.Close();
+            // When game window closes, refresh high score label and show this main window again
+            gw.FormClosed += (s, args) =>
+            {
+                label2.Text = $"최고 기록 : {Program.HighScore}";
+                this.Show();
+            };
             gw.Show();
             this.Hide();
         }

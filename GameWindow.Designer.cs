@@ -89,6 +89,7 @@
             // 
             // endLabel
             // 
+            endLabel = new Label();
             endLabel.Dock = DockStyle.Fill;
             endLabel.Font = new Font("궁서", 24F, FontStyle.Bold, GraphicsUnit.Point, 129);
             endLabel.Location = new Point(0, 0);
@@ -97,6 +98,23 @@
             endLabel.TabIndex = 0;
             endLabel.TextAlign = ContentAlignment.MiddleCenter;
             endLabel.Visible = false;
+            endLabel.BackColor = Color.FromArgb(255, 224, 192);
+            endLabel.ForeColor = Color.Black;
+            endLabel.Text = "";
+
+            // 
+            // finalScoreLabel
+            // 
+            finalScoreLabel = new Label();
+            finalScoreLabel.AutoSize = false;
+            finalScoreLabel.Dock = DockStyle.Top;
+            finalScoreLabel.Height = 60;
+            finalScoreLabel.Font = new Font("궁서", 20F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            finalScoreLabel.TextAlign = ContentAlignment.MiddleCenter;
+            finalScoreLabel.ForeColor = Color.Black;
+            finalScoreLabel.BackColor = Color.FromArgb(255, 224, 192);
+            finalScoreLabel.Visible = false;
+            finalScoreLabel.Text = "점수 : 00";
             // 
             // GameWindow
             // 
@@ -108,6 +126,8 @@
             Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(label3);
+            Controls.Add(finalScoreLabel);
+            Controls.Add(endLabel);
             Name = "GameWindow";
             Text = "버튼을 빠르게 클릭하소";
             ResumeLayout(false);
@@ -119,5 +139,6 @@
         private Label label1;
         private Label label3;
         private Label endLabel;
+        private Label finalScoreLabel;
     }
 }

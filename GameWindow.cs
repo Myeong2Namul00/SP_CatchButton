@@ -50,14 +50,34 @@ namespace CS_Week02_22017011_CatchButton
                 gameTimer.Stop();
                 button1.Enabled = false;
                 // 게임 종료 처리: 최고 점수 갱신
-                if (score > Program.HighScore) Program.HighScore = score;
-                // 종료 메시지 중앙표시
-                if (endLabel != null)
-                {
-                    endLabel.Text = "창을 닫아 돌아가세요";
-                    endLabel.Visible = true;
-                    endLabel.BringToFront();
-                }
+                    if (score > Program.HighScore)
+                    {
+                        Program.HighScore = score;
+                        try
+                        {
+                            Properties.Settings.Default.HighScore = Program.HighScore;
+                            Properties.Settings.Default.Save();
+                        }
+                        catch
+                        {
+                            // ignore save errors
+                        }
+                    }
+
+                    // 종료 메시지 중앙표시 및 최종 점수 출력
+                    if (finalScoreLabel != null)
+                    {
+                        finalScoreLabel.Text = $"점수 : {score:00}";
+                        finalScoreLabel.Visible = true;
+                        finalScoreLabel.BringToFront();
+                    }
+
+                    if (endLabel != null)
+                    {
+                        endLabel.Text = "창을 닫아 돌아가세요";
+                        endLabel.Visible = true;
+                        endLabel.BringToFront();
+                    }
             }
         }
 
