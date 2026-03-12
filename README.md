@@ -4,9 +4,11 @@
 
 제한시간 내에 버튼을 최대한 여러번 클릭해(잡아) 높은 점수를 얻는 게임입니다.
 
-## 실행 영상 (최종아님)
+## 실행 영상 (최종)
 
-https://github.com/user-attachments/assets/ca33079f-0869-4bd0-aa3e-b261fd318369
+https://github.com/user-attachments/assets/7c2954cc-5204-4fdd-9acb-42ead7979203
+
+실행한 영상입니다. 점수 300점 내기도 생각보다 어렵네요.
 
 ## 실행 화면
 
