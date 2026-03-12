@@ -42,7 +42,7 @@
             button1.FlatAppearance.BorderColor = Color.Black;
             button1.FlatAppearance.BorderSize = 3;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("궁서", 12F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            button1.Font = new Font("궁서", 14F, FontStyle.Bold, GraphicsUnit.Point, 129);
             button1.Location = new Point(350, 168);
             button1.Name = "button1";
             button1.Size = new Size(75, 75);

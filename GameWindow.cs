@@ -1,8 +1,11 @@
+using System.Media;
+
 namespace CS_Week02_22017011_CatchButton
 {
     public partial class GameWindow : Form
     {
         private int score = 0;
+        private int size = 100;
         private System.Windows.Forms.Timer fadeTimer;
         private string[] sequence = new[] { "3", "2", "1", "START" };
         private int seqIndex = 0;
@@ -37,6 +40,8 @@ namespace CS_Week02_22017011_CatchButton
             fadeTimer.Start();
 
             this.DoubleBuffered = true;
+
+            button1.Size = new Size(size, size);
         }
 
         private void GameTimer_Tick(object? sender, EventArgs e)
@@ -149,6 +154,11 @@ namespace CS_Week02_22017011_CatchButton
             int add = rdscore.Next(5, 15);
             score = score + add;
             label3.Text = $"점수 : {score}";
+
+            size = size - 2;
+
+            button1.Size = new Size(size, size);
+            button1.Text = "";
         }
 
         private bool IsFarEnough(Point a, Point b, int minDistance)
