@@ -16,6 +16,8 @@ https://github.com/user-attachments/assets/ca33079f-0869-4bd0-aa3e-b261fd318369
 
 최고점수가 표시되고, 버튼을 눌러 게임 창을 띄울 수 있습니다.
 
+## 게임 설명
+
 <img width="817" height="495" alt="image" src="https://github.com/user-attachments/assets/705d5854-3356-4cd8-a76a-58f466b1587d" />
 
 게임 창이 열리면 카운트다운 이후 게임이 시작됩니다.
@@ -27,6 +29,12 @@ https://github.com/user-attachments/assets/ca33079f-0869-4bd0-aa3e-b261fd318369
 버튼을 클릭할 때마다 버튼이 무작위 위치로 이동합니다.
 
 순발력 있게 마우스를 이동하는 게 좋겠죠.
+
+이것만 있으면 너무 쉽죠!
+
+매 클릭 시마다 버튼이 조금씩 작아집니다.
+
+처음에는 별 볼 일 없지만 나중에는 거의 보이지 않으니 주의해주세요!
 
 <img width="799" height="45" alt="image" src="https://github.com/user-attachments/assets/55be56db-cb34-443c-af90-3762c1dade8a" />
 
@@ -49,4 +57,10 @@ https://github.com/user-attachments/assets/ca33079f-0869-4bd0-aa3e-b261fd318369
 <img width="833" height="505" alt="image" src="https://github.com/user-attachments/assets/ab1925b5-821b-4897-ac92-66023ebabb84" />
 
 최고 기록을 경신하면 시작 화면에 표시되고 저장됩니다!
+
+## 후기
+
+시간제한 있는 마우스 연습 느낌으로 만들고 싶었는데, 적절히 잘 나온 것 같아 만족스럽네요.
+
+ui가 좀 아쉬운데 디자인 좀 잘 하고 싶습니다 :(
 
