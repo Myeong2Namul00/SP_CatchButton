@@ -4,6 +4,10 @@
 
 제한시간 내에 버튼을 최대한 여러번 클릭해(잡아) 높은 점수를 얻는 게임입니다.
 
+## 실행 영상 (최종아님)
+
+https://github.com/user-attachments/assets/ca33079f-0869-4bd0-aa3e-b261fd318369
+
 ## 실행 화면
 
 <img width="824" height="508" alt="스크린샷 2026-03-12 163745" src="https://github.com/user-attachments/assets/a8fd3a04-f5fb-4af1-ade8-0df093a82ada" />
@@ -32,4 +36,17 @@
 
 한 번 클릭 때마다 5에서 15 사이의 점수가 지급됩니다.
 
+여러 번 클릭해야 해요! 쉬지 말고 클릭해주세요!
+
+<img width="829" height="504" alt="image" src="https://github.com/user-attachments/assets/effd94ad-8f59-48e0-ad64-c475674cfd1f" />
+
+결과는 시간이 다 지나면 표시됩니다.
+
+창을 닫아 메인화면으로 돌아갈 수 있어요.
+
 하이스코어를 노려보세요!
+
+<img width="833" height="505" alt="image" src="https://github.com/user-attachments/assets/ab1925b5-821b-4897-ac92-66023ebabb84" />
+
+최고 기록을 경신하면 시작 화면에 표시되고 저장됩니다!
+
