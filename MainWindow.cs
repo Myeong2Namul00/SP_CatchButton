@@ -13,6 +13,7 @@ namespace CS_Week02_22017011_CatchButton
         public MainWindow()
         {
             InitializeComponent();
+            label2.Text = $"최고 기록 : {Program.HighScore}";
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -77,7 +77,7 @@
             Controls.Add(button1);
             Controls.Add(label1);
             Name = "MainWindow";
-            Text = "MainWindow";
+            Text = "버튼 을 누르기 게임";
             ResumeLayout(false);
             PerformLayout();
         }
