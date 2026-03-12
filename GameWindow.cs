@@ -8,6 +8,10 @@ namespace CS_Week02_22017011_CatchButton
         private int seqIndex = 0;
         private int alpha = 0; // 0..255
         private float scale = 1.0f;
+        private System.Windows.Forms.Timer gameTimer;
+        private int remainingTime = 0;
+        private Random rnd = new Random();
+        private Point lastButtonLocation = Point.Empty;
 
         public GameWindow()
         {
@@ -18,6 +22,8 @@ namespace CS_Week02_22017011_CatchButton
 
             // 라벨 초기화
             label1.Text = "";
+            if (label2 != null) label2.Text = "남은 시간 : 00";
+            if (label3 != null) label3.Text = "0";
 
             fadeTimer = new System.Windows.Forms.Timer();
             fadeTimer.Interval = 25;
@@ -31,6 +37,28 @@ namespace CS_Week02_22017011_CatchButton
             fadeTimer.Start();
 
             this.DoubleBuffered = true;
+        }
+
+        private void GameTimer_Tick(object? sender, EventArgs e)
+        {
+            remainingTime--;
+            if (remainingTime < 0) remainingTime = 0;
+            label2.Text = $"남은 시간 : {remainingTime:00}";
+
+            if (remainingTime <= 0)
+            {
+                gameTimer.Stop();
+                button1.Enabled = false;
+                // 게임 종료 처리: 최고 점수 갱신
+                if (score > Program.HighScore) Program.HighScore = score;
+                // 종료 메시지 중앙표시
+                if (endLabel != null)
+                {
+                    endLabel.Text = "창을 닫아 돌아가세요";
+                    endLabel.Visible = true;
+                    endLabel.BringToFront();
+                }
+            }
         }
 
         private void label1_Paint(object? sender, PaintEventArgs e)
@@ -71,16 +99,44 @@ namespace CS_Week02_22017011_CatchButton
 
         private void button1_MouseDown(object sender, MouseEventArgs e)
         {
-            Random rd = new Random();
+            var rd = new Random();
 
-            int maxX = this.ClientSize.Width - button1.Width;
-            int maxY = this.ClientSize.Height - button1.Height;
+            int margin = 10;
+            int minX = margin;
+            int minY = margin;
+            int maxX = Math.Max(minX, this.ClientSize.Width - button1.Width - margin); // 최대 좌표
+            int maxY = Math.Max(minY, this.ClientSize.Height - button1.Height - margin); // 최소 좌표
 
-            int nextX = rd.Next(0, Math.Max(1, maxX));
-            int nextY = rd.Next(0, Math.Max(1, maxY));
+            // 최대 50번까지 시도해서 같은 위치 방지
+            int attempts = 0;
+            Point temploc;
+            int minDistance = Math.Min(button1.Width, button1.Height);
+            do
+            {
+                int nextX = rd.Next(minX, maxX + 1);
+                int nextY = rd.Next(minY, maxY + 1);
+                temploc = new Point(nextX, nextY);
+                attempts++;
+                
+                if (attempts > 50) break;
+            }
+            while (!IsFarEnough(temploc, lastButtonLocation, minDistance));
 
-            button1.Location = new Point(nextX, nextY);
-            this.Text = $"버튼위치: ({nextX}, {nextY})";
+            button1.Location = temploc;
+            lastButtonLocation = temploc;
+
+            Random rdscore = new Random();
+            int add = rdscore.Next(5, 15);
+            score = score + add;
+            label3.Text = $"점수 : {score}";
+        }
+
+        private bool IsFarEnough(Point a, Point b, int minDistance)
+        {
+            if (b.IsEmpty) return true;
+            int dx = a.X - b.X;
+            int dy = a.Y - b.Y;
+            return (dx * dx + dy * dy) >= (minDistance * minDistance);
         }
 
         private void FadeTimer_Tick(object? sender, EventArgs e)
@@ -114,6 +170,24 @@ namespace CS_Week02_22017011_CatchButton
                             // 타이머 종료 시 버튼 출력
                             label1.Text = "";
                             button1.Visible = true;
+                            // ensure UI elements are on top
+                            if (label1 != null) label1.SendToBack();
+                            if (button1 != null) button1.BringToFront();
+                            if (label2 != null) label2.BringToFront();
+                            if (label3 != null) label3.BringToFront();
+                            // 게임 시작: 초기화 및 타이머 시작
+                            score = 0;
+                            if (label3 != null) label3.Text = $"점수 : {score}";
+                            remainingTime = 99;
+                            if (label2 != null) label2.Text = $"남은 시간 : {remainingTime:00}";
+                            button1.Enabled = true;
+                            if (gameTimer == null)
+                            {
+                                gameTimer = new System.Windows.Forms.Timer();
+                                gameTimer.Interval = 200; // 0.2초
+                                gameTimer.Tick += GameTimer_Tick;
+                            }
+                            gameTimer.Start();
                         }
                         else
                         {

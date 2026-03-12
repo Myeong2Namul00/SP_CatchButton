@@ -7,7 +7,6 @@
         /// </summary>
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
 
         /// <summary>
         ///  Clean up any resources being used.
@@ -31,7 +30,10 @@
         private void InitializeComponent()
         {
             button1 = new Button();
+            label2 = new Label();
             label1 = new Label();
+            label3 = new Label();
+            endLabel = new Label();
             SuspendLayout();
             // 
             // button1
@@ -52,6 +54,16 @@
             button1.MouseEnter += button1_MouseEnter;
             button1.MouseLeave += button1_MouseLeave;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("궁서", 12F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            label2.Location = new Point(12, 9);
+            label2.Name = "label2";
+            label2.Size = new Size(120, 16);
+            label2.TabIndex = 2;
+            label2.Text = "남은 시간 : 00";
+            // 
             // label1
             // 
             label1.BackColor = Color.Transparent;
@@ -65,19 +77,47 @@
             label1.TextAlign = ContentAlignment.MiddleCenter;
             label1.Paint += label1_Paint;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("궁서", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            label3.Location = new Point(645, 9);
+            label3.Name = "label3";
+            label3.Size = new Size(46, 27);
+            label3.TabIndex = 3;
+            label3.Text = "00";
+            // 
+            // endLabel
+            // 
+            endLabel.Dock = DockStyle.Fill;
+            endLabel.Font = new Font("궁서", 24F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            endLabel.Location = new Point(0, 0);
+            endLabel.Name = "endLabel";
+            endLabel.Size = new Size(100, 23);
+            endLabel.TabIndex = 0;
+            endLabel.TextAlign = ContentAlignment.MiddleCenter;
+            endLabel.Visible = false;
+            // 
             // GameWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(255, 224, 192);
             ClientSize = new Size(800, 450);
-            Controls.Add(button1);
             Controls.Add(label1);
+            Controls.Add(button1);
+            Controls.Add(label2);
+            Controls.Add(label3);
             Name = "GameWindow";
             Text = "버튼을 빠르게 클릭하소";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+        private Label label2;
+        private Label label1;
+        private Label label3;
+        private Label endLabel;
     }
 }

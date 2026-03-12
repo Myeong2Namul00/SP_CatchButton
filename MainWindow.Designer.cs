@@ -37,11 +37,11 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("궁서체", 36F, FontStyle.Bold, GraphicsUnit.Point, 129);
-            label1.Location = new Point(187, 97);
+            label1.Location = new Point(199, 95);
             label1.Name = "label1";
-            label1.Size = new Size(413, 48);
+            label1.Size = new Size(388, 48);
             label1.TabIndex = 0;
-            label1.Text = "버튼 을 눌러보소";
+            label1.Text = "버튼을 잡아보소";
             // 
             // button1
             // 
@@ -77,7 +77,7 @@
             Controls.Add(button1);
             Controls.Add(label1);
             Name = "MainWindow";
-            Text = "버튼 을 누르기 게임";
+            Text = "버튼 잡는 게임";
             ResumeLayout(false);
             PerformLayout();
         }
